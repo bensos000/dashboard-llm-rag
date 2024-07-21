@@ -5,7 +5,6 @@ from vanna.flask import VannaFlaskApp
 from vanna.flask.auth import AuthInterface
 import flask
 import json
-from subprocess import check_output
 
 class SimplePassword(AuthInterface):
     def __init__(self, users: dict):
@@ -128,10 +127,8 @@ users = db_config.get('users', [])
 
 vn.connect_to_postgres(host=db_host, dbname=db_name, user=db_user, password=db_password, port=db_port)
 
-ddl = check_output(["pg_dump", "--schema-only", "--schema=public"])
-
 ddl = """
-your create tables here
+CREATE TABLE x,y...z
 """
 
 vn.train(ddl=ddl)
