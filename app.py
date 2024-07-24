@@ -116,6 +116,8 @@ vn = MyVanna(config={'model': 'llama3'})
 # Load database configuration from the config file
 config = load_config()
 db_config = config.get('database', {})
+users = config.get('users', [])
+
 
 # Extract parameters from the configuration
 db_host = db_config.get('db_host', 'localhost')
@@ -123,14 +125,12 @@ db_name = db_config.get('db_name', 'ooredoo')
 db_user = db_config.get('db_user', 'postgres')
 db_password = db_config.get('db_password', 'postgres')
 db_port = db_config.get('db_port', '5432')
-users = db_config.get('users', [])
 
 vn.connect_to_postgres(host=db_host, dbname=db_name, user=db_user, password=db_password, port=db_port)
 
 ddl = """
-CREATE TABLE x,y...z
+here
 """
-
 vn.train(ddl=ddl)
 training_data = vn.get_training_data()
 training_data
